@@ -1,8 +1,11 @@
-//
-//  File.swift
-//  
-//
-//  Created by Stoyan Yanev on 11.07.20.
-//
-
-import Foundation
+enum GameDiceFaces: String, CustomStringConvertible, Hashable, Equatable {
+    case brains = "🧠"
+    case shotgun = "💥"
+    case runner = "👣"
+    
+    var description: String {
+        get {
+            return self.rawValue
+        }
+    }
+}
