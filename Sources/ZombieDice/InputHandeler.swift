@@ -1,15 +1,4 @@
-enum InputError: Error, CustomStringConvertible {
-    case invalidNumberOfPlayers
-    
-    var description: String {
-        switch self {
-        case .invalidNumberOfPlayers:
-            return "The number of players must be between 2-8!"
-        }
-    }
-}
-
-final class InputHandeler {
+public class InputHandeler {
     let MIN_NUMBER_OF_PLAYERS = 2
     let MAX_NUMBER_OF_PLAYERS = 8
     
@@ -17,7 +6,7 @@ final class InputHandeler {
         var players = [Player]()
         print("Enter number of players: ")
         let numberOfPlayers = Int(readLine()!)
-        if  numberOfPlayers != MIN_NUMBER_OF_PLAYERS || numberOfPlayers != MAX_NUMBER_OF_PLAYERS {
+        if numberOfPlayers! < MIN_NUMBER_OF_PLAYERS || numberOfPlayers! > MAX_NUMBER_OF_PLAYERS {
             throw InputError.invalidNumberOfPlayers
         }
         
@@ -28,5 +17,18 @@ final class InputHandeler {
         }
         
         return players
+    }
+    
+    func askPlayerForContinue() throws -> Bool {
+        print("Do you want to continue: ")
+        print("1. Yes")
+        print("2. No")
+        print("Your chooice is: ")
+        let chooice = Int(readLine()!)
+        if chooice! < 1 || chooice! > 2 {
+            throw InputError.invalidChooice
+        }
+        
+        return chooice == 1 ? true : false
     }
 }
