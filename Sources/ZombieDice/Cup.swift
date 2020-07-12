@@ -13,8 +13,8 @@ public class Cup {
     
     /// Returns the pulled dices from the cup
     ///
-    /// Parameter: numberOfDice - the number of dices that should be pulled from the cup
-    /// Returns: the pulled dices
+    /// - Parameters: numberOfDice - the number of dices that should be pulled from the cup
+    /// - Returns: the pulled dices
     func pullDices(_ numberOfDice: Int) -> Array<Dice<GameDiceFaces>> {
         let hand = currentDicePool.shuffled().prefix(numberOfDice)
         var greenDicesInHand = 0
@@ -31,7 +31,7 @@ public class Cup {
                 redDicesInHand += 1
             }
         }
-        print("Pulled \(greenDicesInHand) green dice; \(yellowDicesInHand) yellow dice; \(redDicesInHand) red dice;")
+        print("Pulled \(greenDicesInHand) 🟢 dice; \(yellowDicesInHand) 🟡 dice; \(redDicesInHand) 🔴 dice;")
         updateDicePool(pulledDices: Array(hand))
         
         return Array(hand)
@@ -44,7 +44,7 @@ public class Cup {
     
     /// Updates the current dice pool by removing the pulled dices from it
     ///
-    /// Parameter: pulledDices - the dices that the player has pulled
+    /// - Parameters: pulledDices - the dices that the player has pulled
     internal func updateDicePool(pulledDices: Array<Dice<GameDiceFaces>>){
         for dice in pulledDices {
             if let index = currentDicePool.firstIndex(where: { $0.faces == dice.faces }) {

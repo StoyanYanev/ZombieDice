@@ -5,8 +5,8 @@ public class ConsoleInputHandeler: InputHandeler {
     
     /// Reads the number of the players, creates and returns them
     ///
-    /// Returns: the created players
-    /// Throws: InvalidNumberOfPlayers - when the number of players is less than 2 or more than 8
+    /// - Returns: the created players
+    /// - Throws: InvalidNumberOfPlayers - when the number of players is less than 2 or more than 8
     func createPlayers() throws -> [Player] {
         var players = [Zombie]()
         print("Enter number of players: ")
@@ -26,9 +26,9 @@ public class ConsoleInputHandeler: InputHandeler {
     
     /// Reads the player choice for continuing his turn and returns it
     ///
-    /// Parameter: player - the current player
-    /// Returns: true when the player wants to continue his turn and false otherwise
-    /// Throws: InvalidChoice - when the player's choice is invalid
+    /// - Parameters: player - the current player
+    /// - Returns: true when the player wants to continue his turn and false otherwise
+    /// - Throws: InvalidChoice - when the player's choice is invalid
     func askPlayerForContinue(player: Player) throws -> Bool {
         print("\(player.name) do you want to continue: ")
         print("1. Yes")

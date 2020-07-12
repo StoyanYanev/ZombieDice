@@ -13,14 +13,14 @@ public class Zombie: Player {
     
     /// Updates the brain score by adding the number of the brains from the dices which the player has rolled
     ///
-    /// Parameter: numberOfBrains
+    /// - Parameters: numberOfBrains
     public func updateBrainScore(numberOfBrains: Int) {
         self.brainScore += numberOfBrains
     }
     
     /// Updates the shot guns score by adding the number of the guns from the dices which the player has rolled
     ///
-    /// Parameter: numberOfShotGuns
+    /// - Parameters: numberOfShotGuns
     public func updateNumberOfShotguns(numberOfShotguns: Int) {
         self.shotgunScore += numberOfShotguns
     }

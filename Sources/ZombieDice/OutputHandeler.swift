@@ -3,4 +3,5 @@ protocol OutputHandeler {
     func printPlayerTurn(player: Player)
     func printPlayerEndGame(player: Player)
     func printWinner(player: Player)
+    func printNewLine()
 }

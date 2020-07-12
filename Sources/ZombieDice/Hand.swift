@@ -9,8 +9,8 @@ public class Hand {
     
     /// Returns the faces of the dices that the player has rolled
     ///
-    /// Parameter: pulledDices -
-    /// Returns: an array with the dice's faces
+    /// - Parameters: pulledDices
+    /// - Returns: an array with the dice's faces
     func rollDices(pulledDices: Array<Dice<GameDiceFaces>>) -> [GameDiceFaces] {
         dices = dices + pulledDices;
         let result = dices.map{$0.roll()}
@@ -26,5 +26,10 @@ public class Hand {
         
         dices = rolledRunners
         return result
+    }
+    
+    /// Remove dices from hand when the player finishes his turn
+    func removeDicesFromHand() {
+         self.dices = [Dice<GameDiceFaces>]()
     }
 }
