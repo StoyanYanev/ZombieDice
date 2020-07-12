@@ -8,5 +8,4 @@ struct Dices {
     static let redDice = try! Dice(faces: Array(repeating: GameDiceFaces.brains, count: CupConstants.MAX_BRAINS_IN_RED_DICE) +
         Array(repeating: GameDiceFaces.shotgun, count: CupConstants.MAX_SHOTGUNS_IN_RED_DICE) +
         Array(repeating: GameDiceFaces.runner, count: CupConstants.MAX_RUNNERS_IN_RED_DICE))
-    
 }

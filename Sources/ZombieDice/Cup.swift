@@ -4,7 +4,7 @@ public class Cup {
     
     private var currentDicePool: [Dice<GameDiceFaces>]
     
-    public init() {
+    init() {
         self.currentDicePool = gameDicePool
     }
     
@@ -30,7 +30,7 @@ public class Cup {
         return Array(hand)
     }
     
-    public func returnDicesInCup(){
+    public func returnDicesInCup() {
         self.currentDicePool = gameDicePool
     }
     

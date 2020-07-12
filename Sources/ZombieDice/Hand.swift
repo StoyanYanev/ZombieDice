@@ -1,7 +1,7 @@
 public class Hand {
     private var dices: [Dice<GameDiceFaces>]
     
-    init(){
+    init() {
         self.dices = [Dice<GameDiceFaces>]()
     }
     
