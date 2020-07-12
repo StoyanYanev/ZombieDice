@@ -6,7 +6,7 @@ public class OutputHandeler {
     
     init(){}
     
-    func drawResult(players: [Player]){
+    func prinResultTable(players: [Player]){
         let playerNames = players.map{$0.getName()}.map{TextTableColumn(header: $0)}
         let playerPoints = players.map{$0.getBrainScore()}
         
@@ -22,7 +22,7 @@ public class OutputHandeler {
     }
     
     func printPlayerEndGame(player: Player) {
-        print("\(player.getName()) you lost")
+        print("\(player.getName()) you lost!")
     }
     
     func printWinner(player: Player) {

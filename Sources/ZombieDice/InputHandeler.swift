@@ -23,12 +23,12 @@ public class InputHandeler {
         print("Do you want to continue: ")
         print("1. Yes")
         print("2. No")
-        print("Your chooice is: ")
-        let chooice = Int(readLine()!)
-        if chooice! < 1 || chooice! > 2 {
-            throw InputError.invalidChooice
+        print("Your choice is: ")
+        let choice = Int(readLine()!)
+        if choice! < 1 || choice! > 2 {
+            throw InputError.invalidChoice
         }
         
-        return chooice == 1 ? true : false
+        return choice == 1 ? true : false
     }
 }
