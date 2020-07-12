@@ -1,21 +1,48 @@
-final class Player {
+public class Player {
     private var name: String
-    private var points: Int
+    private var brainScore: Int
+    private var shotgunScore: Int
+    private var hand: Hand
     
     init(name: String){
         self.name = name
-        self.points = 0
+        self.brainScore = 0
+        self.shotgunScore = 0
+        self.hand = Hand()
     }
     
     public func getName() -> String {
         return self.name
     }
     
-    public func getPoints() -> Int {
-        return self.points
+    public func getBrainScore() -> Int {
+        return self.brainScore
     }
     
-    public func updatePoints(points: Int) {
-        self.points += points
+    func getHand() -> Hand {
+        return self.hand
+    }
+    
+    public func updateBrainScore(numberOfBrains: Int) {
+        self.brainScore += numberOfBrains
+    }
+    
+    public func getShotgunScore() -> Int {
+        return self.shotgunScore
+    }
+    
+    public func updateNumberOfShotguns(numberOfShotguns: Int) {
+        self.shotgunScore += numberOfShotguns
+    }
+    
+    public func resetNumberOfShotguns(){
+        self.shotgunScore = 0
+    }
+}
+
+extension Player: Equatable {
+    public static func == (lhs: Player, rhs: Player) -> Bool {
+        lhs.getName() == rhs.getName() && lhs.getBrainScore() == rhs.getBrainScore()
+            &&  lhs.getShotgunScore() == rhs.getShotgunScore()
     }
 }
