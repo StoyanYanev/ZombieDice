@@ -1,3 +1,4 @@
+/// Represents the game's dice
 public struct Dice<T: Equatable> {
     let faces: [T]
     

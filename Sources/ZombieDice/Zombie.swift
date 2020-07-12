@@ -11,14 +11,21 @@ public class Zombie: Player {
         self.hand = Hand()
     }
     
+    /// Updates the brain score by adding the number of the brains from the dices which the player has rolled
+    ///
+    /// Parameter: numberOfBrains
     public func updateBrainScore(numberOfBrains: Int) {
         self.brainScore += numberOfBrains
     }
     
+    /// Updates the shot guns score by adding the number of the guns from the dices which the player has rolled
+    ///
+    /// Parameter: numberOfShotGuns
     public func updateNumberOfShotguns(numberOfShotguns: Int) {
         self.shotgunScore += numberOfShotguns
     }
     
+    /// Resets the number of shot guns. It is used when the player ends his turn
     public func resetNumberOfShotguns() {
         self.shotgunScore = 0
     }

@@ -1,3 +1,4 @@
+/// Enum with the errors that can occur while reading the player's input
 enum InputError: Error, CustomStringConvertible {
     case invalidNumberOfPlayers
     case invalidChoice

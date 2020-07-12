@@ -15,6 +15,12 @@ public class ZombieDiceGame {
         self.outputHandeler = ConsoleOutputHandeler()
     }
     
+    /// The main game method which calls the other methods for reading the players input and printhing the game details.
+    ///  Each player pulls and rolls dices and chooses if he wants to continue his turn. The game ends when one of the
+    ///  players gets 13 brains. A player looses the game when he gets 3 shotguns during one turn.
+    ///
+    /// Throws: InvalidNumberOfPlayers
+    /// Throws: InvalidChoice
     func play() throws {
         try self.players = inputHandeler.createPlayers()
         var hasWinner = false
@@ -47,6 +53,11 @@ public class ZombieDiceGame {
         }
     }
     
+    /// Reprents one player's turn. The current player which is passed as parameter pulls and roles dices
+    /// and then decides if wants to continue the turn
+    ///
+    /// Parameter: player - the current player
+    /// Throws: InvalidChoice
     internal func playRounds(player: Zombie) throws {
         var isContinue = true
         var numberOfRolledRunners = 0
@@ -64,6 +75,10 @@ public class ZombieDiceGame {
         }
     }
     
+    /// Returns the number of the number of brains, the number of shotguns and the number of runners from the rolled dices
+    ///
+    /// Parameter: faces - an array with the faces from the rolled dices
+    /// Returns: the number of brains, the number of shotguns and the number of runners from the rolled dices
     internal func countNumberOfFaces(faces: [GameDiceFaces]) -> (numberOfBrains: Int, numberOfShotguns: Int, numberOfRunners: Int) {
         let numberOfBrains = faces.filter{$0.description == GameDiceFaces.brains.description}.count
         let numberOfShotguns = faces.filter{$0.description == GameDiceFaces.shotgun.description}.count
@@ -72,10 +87,20 @@ public class ZombieDiceGame {
         return (numberOfBrains, numberOfShotguns, numberOfRunners)
     }
     
+    /// Prints the faces of  the rolled dices
+    ///
+    /// Parameter: numberOfBrains
+    /// Parameter: numberOfShotguns
+    /// Parameter: numberOfRunners
     internal func printRolledFaces(numberOfBrains: Int, numberOfShotguns: Int, numberOfRunners: Int) {
         print("Rolled \(GameDiceFaces.brains.description) \(numberOfBrains); \(GameDiceFaces.shotgun.description) \(numberOfShotguns); \(GameDiceFaces.runner.description) \(numberOfRunners)")
     }
     
+    /// Updates the player braina and shotguns score with the number of brains and number of shotguns from the rolled dices
+    ///
+    /// Parameter: player - the current player
+    /// Parameter: numberOfBrains
+    /// Parameter: numberOfShotguns
     internal func updatePlayerPoints(player: Zombie, numberOfBrains: Int, numberOfShotguns: Int) {
         player.updateBrainScore(numberOfBrains: numberOfBrains)
         player.updateNumberOfShotguns(numberOfShotguns: numberOfShotguns)

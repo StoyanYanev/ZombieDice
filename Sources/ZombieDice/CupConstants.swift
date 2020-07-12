@@ -1,3 +1,4 @@
+/// Stores all cup's constants
 public struct CupConstants {
     static let MAX_BRAINS_IN_GREEN_DICE = 3
     static let MAX_SHOTGUNS_IN_GREEN_DICE = 1
